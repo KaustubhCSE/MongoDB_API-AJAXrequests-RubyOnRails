@@ -1,0 +1,34 @@
+[
+  {
+        "Name":"Sam",
+
+        "Address":"Street",
+
+        "Phone":"111",
+
+        "status":"Available"
+
+    }, 
+    
+    {
+        "Name":"Tom",
+
+        "Address":"Road",
+
+        "Phone":"222",
+
+        "status":"Busy"
+
+    },
+    
+   {
+        "Name":"Caddy",
+
+        "Address":"Texas",
+
+        "Phone":"777",
+
+        "status":"Available"
+
+    }
+]

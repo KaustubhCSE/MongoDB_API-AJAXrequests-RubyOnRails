@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 <body>
@@ -12,4 +12,35 @@
 </div>
 
 </body>
+</html>
+-->
+
+<html ng-app="myApp">
+<h1>To Retrive Data from Json Click below: </h1>
+    <head>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js">
+    </script>       
+    <script>
+    myApp=angular.module('myApp',[]);
+    myApp.controller('myController', ['$scope', '$http', function($scope,$http){
+  $scope.clickButton = function() {
+    $http.get('data.json').success(function(data) {
+        $scope.items = data;
+      });
+  }
+  
+}]);
+    </script>
+    </head>
+    <body ng-controller="myController">
+         <div ng-app="myApp">
+        <div ng-controller="myController">
+          <button ng-click='clickButton()'>Load Data</button>
+          <ul ng-repeat="item in items">
+            <li ng-repeat="(key, val) in item">{{key}}: {{val}}
+            </li>
+        </ul>
+        </div>
+    </div>
+    </body>
 </html>
