@@ -1,5 +1,21 @@
+<!--
+
+Name: Kaustubh Mohgaonkar
+ID: 1001101770
+NETID: kpm1770
+
+Refrences:
+
+http://www.latlong.net/
+http://www.w3schools.com/jsref/jsref_parsefloat.asp
+https://developers.google.com/maps/web/
+http://stackoverflow.com/questions/15527699/for-loop-and-append
+
+!-->
+
 <!DOCTYPE html>
 <html>
+<script>document.title = "Project1 CSE 5335"</script>
   <head>
    
     <style>
@@ -11,16 +27,16 @@
 
   </head>
   <body>
-    <b>Name: Kaustubh Mohgaonkar</b>
+    <b>Name: Kaustubh Prashant Mohgaonkar</b>
     <br>
-    <b>ID: 1001101770</b>
+    <b>ID: 1001101770  NetID: kpm1770</b>
     <center>
+    <b> Markers with below locations. Just click to see!<b>
+    <br>
     <div id="map"></div>
     <button onclick="maps_run()">Click me</button>
     <div>
-      <b>
-      <table id = "maps_uk" border = "1"> </table>
-      </b>
+      <table id = "maps_uk" border = "1" padding: "2px" ><th>Place</th><th>Long</th><th>Lat</th></table>
     </center>
   </body>
 </html>
@@ -60,25 +76,5 @@
           }
         });
 
-
-      //   var myLatLng = {lat: 51.5072, lng: 0.1275};
-      //   var myLatLng1 = {lat: 48.850, lng: 2.35};
-
-      //   var marker = new google.maps.Marker({
-      //   position: myLatLng,
-      //   map: map,
-      //   title: 'London'});
-
-      //   var marker1 = new google.maps.Marker({
-      //   position: myLatLng1,
-      //   map: map,
-      //   title: 'Paris'
-      // });
-
       }
-      // google.maps.event.addDomListener(window, 'load', initialize);
-
     </script>
-<!--
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ihbXM9bF62eZ5JOvGh9doYHhSSaMtR0&signed_in=true&callback=initialize"></script> -->
