@@ -11,11 +11,17 @@
 
   </head>
   <body>
+    <b>Name: Kaustubh Mohgaonkar</b>
+    <br>
+    <b>ID: 1001101770</b>
+    <center>
     <div id="map"></div>
     <button onclick="maps_run()">Click me</button>
     <div>
+      <b>
       <table id = "maps_uk" border = "1"> </table>
-
+      </b>
+    </center>
   </body>
 </html>
 
@@ -25,18 +31,7 @@
       function maps_run() {
      
        $.getJSON('data.json', function(json){
-           for (var key in json) {
-                        if (json.hasOwnProperty(key)) {
-                            var item = json[key];
-                            
-                              var trHTML = '';
-                            trHTML += '<tr><td>' + item.place + '</td><td>' + item.longitude + '</td><td>' + item.latitude + '</td><tr>';
-                            $('#maps_uk').append(trHTML);
 
-
-          }
-       }
-        });
 
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
@@ -44,20 +39,41 @@
           zoom: 6,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
-        var myLatLng1 = {lat: 51.5072, lng: 0.1275};
-        // var myLatLng2 = {lat: 48.850.500, lng: 2.35};
+          var map = new google.maps.Map(mapCanvas, mapOptions)
 
-        var marker1 = new google.maps.Marker({
-        position: myLatLng1,
-        map: map,
-        title: 'London'
 
-        // var marker2 = new google.maps.Marker({
-        // position: myLatLng2,
-        // map: map,
-        // title: 'Paris'
-      });
+           for (var key in json) 
+          {
+            if (json.hasOwnProperty(key)) 
+            {
+              var item = json[key];
+              var trHTML = '';
+              trHTML += '<tr><td>' + item.place + '</td><td>' + item.longitude + '</td><td>' + item.latitude + '</td><tr>';
+              $('#maps_uk').append(trHTML);
+              var myLatLng = {lat: parseFloat(item.longitude), lng: parseFloat(item.latitude)};
+                      var marker = new google.maps.Marker({
+                      position: myLatLng,
+                      map: map,
+                      title: item.place
+                      });
+            }
+          }
+        });
+
+
+      //   var myLatLng = {lat: 51.5072, lng: 0.1275};
+      //   var myLatLng1 = {lat: 48.850, lng: 2.35};
+
+      //   var marker = new google.maps.Marker({
+      //   position: myLatLng,
+      //   map: map,
+      //   title: 'London'});
+
+      //   var marker1 = new google.maps.Marker({
+      //   position: myLatLng1,
+      //   map: map,
+      //   title: 'Paris'
+      // });
 
       }
       // google.maps.event.addDomListener(window, 'load', initialize);

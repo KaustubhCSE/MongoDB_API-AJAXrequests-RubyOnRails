@@ -1,12 +1,12 @@
 [
-        {"id":1,"place":"london","longitude":"51.500","latitude":"0.126"},
-        {"id":2,"place":"manchester","longitude":"53.466","latitude":"2.233"},
-        {"id":3,"place":"liverpool","longitude":"53.400","latitude":"3.000"},
-        {"id":4,"place":"cardiff","longitude":"51.480","latitude":"3.180"},
-        {"id":5,"place":"reading","longitude":"51.450","latitude":"0.976"},
-        {"id":6,"place":"plymouth","longitude":"50.370","latitude":"4.142"},
-        {"id":7,"place":"brussels","longitude":"50.850","latitude":"4.350"},
-        {"id":8,"place":"paris","longitude":"48.850","latitude":"2.356"},
-        {"id":9,"place":"caen","longitude":"49.180","latitude":"0.370"},
-        {"id":10,"place":"amstradam","longitude":"52.360","latitude":"4.900"}
+        {"id":1,"place":"London","longitude":"51.507","latitude":"-0.127"},
+        {"id":2,"place":"Manchester","longitude":"53.466","latitude":"-2.233"},
+        {"id":3,"place":"Liverpool","longitude":"53.408","latitude":"-3.000"},
+        {"id":4,"place":"Cardiff","longitude":"51.4815","latitude":"-3.1790"},
+        {"id":5,"place":"Reading","longitude":"51.752","latitude":"-1.257"},
+        {"id":6,"place":"Plymouth","longitude":"50.370","latitude":"-4.142"},
+        {"id":7,"place":"Brussels","longitude":"50.850","latitude":"4.350"},
+        {"id":8,"place":"Paris","longitude":"48.850","latitude":"2.356"},
+        {"id":9,"place":"Caen","longitude":"49.180","latitude":"-0.370"},
+        {"id":10,"place":"Amstradam","longitude":"52.360","latitude":"4.900"}
 ]
