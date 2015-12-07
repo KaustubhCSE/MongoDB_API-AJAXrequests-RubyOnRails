@@ -80,8 +80,85 @@ http://stackoverflow.com/questions/15527699/for-loop-and-append
     </script>
  -->
 
- <html>
+<!--  <html>
  <body>
   <h1>Hello Project 3</h1>
  </body>
- </html>
+ </html> -->
+
+
+<html>
+    <head>
+        <title> Data Display </title>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>        
+       
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type='text/javascript'>
+
+var i = 1;
+        var r = 1;
+        function getData(){
+            if(i < 102){
+
+            var xmlhttp = new XMLHttpRequest();
+            var url = "https://api.mongolab.com/api/1/databases/heroku_bvdcj6j3/collections/fathers?q={%22ID%22:%20"+i+"}&apiKey=Ix6IchmtLXJiGzdkXN5HYAfvskE13LVf";
+            var myArr;
+            
+                        
+                xmlhttp.onreadystatechange=function()
+                 {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        
+                        var json = eval(xmlhttp.responseText);
+                        document.getElementById("div"+r).innerHTML=JSON.stringify(json[0]["Name"]);
+                        $("#div"+r).animate({fontSize: '3em'}, "fast");
+                        $("#div"+r).animate({fontSize: '1em'}, "slow");
+                    }
+                }
+
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+            i++;
+            r = (i % 20)+1;
+        }
+        }
+            
+      
+    </script>
+    </head>
+    <body>
+       <div id="div1"> </div>
+       <div id="div2"> </div>
+       <div id="div3"> </div>
+       <div id="div4"> </div>
+       <div id="div5"> </div>
+       <div id="div6"> </div>
+       <div id="div7"> </div>
+       <div id="div8"> </div>
+       <div id="div9"> </div>
+       <div id="div10"> </div>
+       <div id="div11"> </div>
+       <div id="div12"> </div>
+       <div id="div13"> </div>
+       <div id="div14"> </div>
+       <div id="div15"> </div>
+       <div id="div16"> </div>
+       <div id="div17"> </div>
+       <div id="div18"> </div>
+       <div id="div19"> </div>
+       <div id="div20"> </div>
+    <script>
+        
+        getData();
+            var timeout= setInterval (getData, 500);
+            
+                
+        </script>
+    </body>
+
+
+<!-- https://api.mongolab.com/api/1/databases/heroku_bvdcj6j3/collections/fathers?q={%22ID%22:%2010}&apiKey=Ix6IchmtLXJiGzdkXN5HYAfvskE13LVf
+
+https://api.mongolab.com/api/1/databases/heroku_bvdcj6j3/collections/fathers?apiKey=Ix6IchmtLXJiGzdkXN5HYAfvskE13LVf -->
