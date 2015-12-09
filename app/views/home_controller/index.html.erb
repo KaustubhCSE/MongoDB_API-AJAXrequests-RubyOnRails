@@ -1,4 +1,4 @@
-<!--
+<!-- 
 
 Name: Kaustubh Mohgaonkar
 ID: 1001101770
@@ -6,129 +6,57 @@ NETID: kpm1770
 
 Refrences:
 
-http://www.latlong.net/
-http://www.w3schools.com/jsref/jsref_parsefloat.asp
-https://developers.google.com/maps/web/
+http://www.w3schools.com/ajax/ajax_xmlhttprequest_send.asp
 http://stackoverflow.com/questions/15527699/for-loop-and-append
+http://docs.mongolab.com/data-api/#reference
+http://stackoverflow.com/questions/24523039/animate-json-data-with-jquery-ajax
+http://stackoverflow.com/questions/8232197/passing-json-data-to-getjson-in-jquery
 
-!-->
-<!-- 
-<!DOCTYPE html>
-<html>
-<script>document.title = "Project1 CSE 5335"</script>
-  <head>
-   
-    <style>
-      #map {
-        width: 500px;
-        height: 400px;
-      }
-    </style>
-
-  </head>
-  <body>
-    <b>Name: Kaustubh Prashant Mohgaonkar</b>
-    <br>
-    <b>ID: 1001101770  NetID: kpm1770</b>
-    <center>
-    <b> Markers with below locations. Just click to see!<b>
-    <br>
-    <div id="map"></div>
-    <button onclick="maps_run()">Click me</button>
-    <div>
-      <table id = "maps_uk" border = "1" padding: "2px" ><th>Place</th><th>Long</th><th>Lat</th></table>
-    </center>
-  </body>
-</html>
-
-<script src="https://maps.googleapis.com/maps/api/js"></script>  
-<script>
-
-      function maps_run() {
-     
-       $.getJSON('data.json', function(json){
-
-
-        var mapCanvas = document.getElementById('map');
-        var mapOptions = {
-          center: new google.maps.LatLng(51.5072, 0.1275),
-          zoom: 6,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-          var map = new google.maps.Map(mapCanvas, mapOptions)
-
-
-           for (var key in json) 
-          {
-            if (json.hasOwnProperty(key)) 
-            {
-              var item = json[key];
-              var trHTML = '';
-              trHTML += '<tr><td>' + item.place + '</td><td>' + item.longitude + '</td><td>' + item.latitude + '</td><tr>';
-              $('#maps_uk').append(trHTML);
-              var myLatLng = {lat: parseFloat(item.longitude), lng: parseFloat(item.latitude)};
-                      var marker = new google.maps.Marker({
-                      position: myLatLng,
-                      map: map,
-                      title: item.place
-                      });
-            }
-          }
-        });
-
-      }
-    </script>
- -->
-
-<!--  <html>
- <body>
-  <h1>Hello Project 3</h1>
- </body>
- </html> -->
-
+-->
 
 <html>
     <head>
-        <title> Data Display </title>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>        
-       
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    
         <script type='text/javascript'>
 
-var i = 1;
-        var r = 1;
-        function getData(){
-            if(i < 102){
+          document.title = "Project 3"
+          var i = 0;
+          var id = 0;
+          function fetchjson(){
 
-            var xmlhttp = new XMLHttpRequest();
-            var url = "https://api.mongolab.com/api/1/databases/heroku_bvdcj6j3/collections/fathers?q={%22ID%22:%20"+i+"}&apiKey=Ix6IchmtLXJiGzdkXN5HYAfvskE13LVf";
-            var myArr;
+            if(i < 102){
             
-                        
+            // url for MongoDB API
+            var url = "https://api.mongolab.com/api/1/databases/heroku_bvdcj6j3/collections/fathers?q={%22ID%22:%20"+i+"}&apiKey=Ix6IchmtLXJiGzdkXN5HYAfvskE13LVf";
+                
+                var xmlhttp = new XMLHttpRequest();            
                 xmlhttp.onreadystatechange=function()
                  {
                     if (xmlhttp.readyState==4 && xmlhttp.status==200)
                     {
                         
                         var json = eval(xmlhttp.responseText);
-                        document.getElementById("div"+r).innerHTML=JSON.stringify(json[0]["Name"]);
-                        $("#div"+r).animate({fontSize: '3em'}, "fast");
-                        $("#div"+r).animate({fontSize: '1em'}, "slow");
+                        document.getElementById("div"+id).innerHTML= ("ID :" + JSON.stringify(json[0]["ID"])+" |  Name :" +JSON.stringify(json[0]["Name"]));
+                        $("#div"+id).animate({fontSize: '2em'}, "slow", "swing")
+                        $("#div"+id).animate({fontSize: '1em'}, "fast", "swing")
                     }
                 }
 
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
             i++;
-            r = (i % 20)+1;
+            id = (i % 20)+1;
         }
-        }
-            
-      
+      }
+                  
     </script>
     </head>
+    <center>
+    <h1>Project 3 CSE 5335</h1>
     <body>
+
        <div id="div1"> </div>
        <div id="div2"> </div>
        <div id="div3"> </div>
@@ -149,16 +77,13 @@ var i = 1;
        <div id="div18"> </div>
        <div id="div19"> </div>
        <div id="div20"> </div>
+
     <script>
         
-        getData();
-            var timeout= setInterval (getData, 500);
-            
-                
-        </script>
+      fetchjson();
+      var timeout= setInterval (fetchjson, 500);
+
+    </script>
     </body>
-
-
-<!-- https://api.mongolab.com/api/1/databases/heroku_bvdcj6j3/collections/fathers?q={%22ID%22:%2010}&apiKey=Ix6IchmtLXJiGzdkXN5HYAfvskE13LVf
-
-https://api.mongolab.com/api/1/databases/heroku_bvdcj6j3/collections/fathers?apiKey=Ix6IchmtLXJiGzdkXN5HYAfvskE13LVf -->
+    </center>
+</html>
